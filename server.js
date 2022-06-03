@@ -34,7 +34,7 @@ app.get("/api:name", (req, res) => {
     res.json(rappers["unknown"]);
   }
 });
-
-app.listen(PORT, () => {
+//try using heroku's port, if its not possible then use ours
+app.listen(process.env.PORT || PORT, () => {
   console.log(`The server is now running on port ${PORT}`);
 });
