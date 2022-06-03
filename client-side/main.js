@@ -4,10 +4,9 @@ async function apiRequest() {
   const rapperName = document.querySelector("input").value;
   try {
     const response = await fetch(
-      `https://raps-api-100devs.herokuapp.com/api/${rapperName}`
+      `https://simple-rapper-api.herokuapp.com/api/${rapperName}`
     );
     const data = await response.json();
-
     console.log(data);
     document.querySelector("h2").innerText = data.birthName;
   } catch (error) {

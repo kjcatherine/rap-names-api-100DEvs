@@ -27,7 +27,7 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
 
-app.get("/api:name", (req, res) => {
+app.get("/api/:name", (req, res) => {
   const rapperName = request.params.name.toLowerCase();
   if (rappers[rapperName]) {
     res.json(rappers[rapperName]);
