@@ -2,7 +2,9 @@ const { request } = require("express");
 const express = require("express");
 const app = express();
 const PORT = 8000;
+const cors = require("cors");
 
+app.use(cors());
 const rappers = {
   "21 savage": {
     age: 29,
@@ -26,7 +28,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api:name", (req, res) => {
-  const rapperName = request.params.name;
+  const rapperName = request.params.name.toLowerCase();
   if (rappers[rapperName]) {
     res.json(rappers[rapperName]);
     //res.json(rappers[rapperName].birthName)
