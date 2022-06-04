@@ -4,6 +4,7 @@ const PORT = 8000;
 const cors = require("cors");
 
 app.use(cors());
+app.use(express.static("public"));
 
 let rappers = {
   "21 savage": {
@@ -49,7 +50,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api/:name", (req, res) => {
-  const rapperName = request.params.name.toLowerCase();
+  const rapperName = req.params.name.toLowerCase();
   if (rappers[rapperName]) {
     res.json(rappers[rapperName]);
     //res.json(rappers[rapperName].birthName)
